@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <h1>Adding Properties to DOM Element</h1>
+  <h2> Ref: Lecture Slide ch08.pptx 예제 8-1</h2>
+  <p id="demo">Click me</p>
+
+  <script>
+    function handleOnclick(obj) {
+      // complete innerHTML and style.color properties
+      obj.innerHTML = "I'm clicked";
+      p.style.color = "red";
+      // obj.style.color = "red";
+    }
+
+    let p = document.getElementById("demo");
+
+    // onclick 이벤트 핸들러를 추가하는 다양한 방법
+    // Various ways of adding onclick event handler
+
+    // 1. Implementing the handler within addEventListener
+    // p.addEventListener("click", function () {
+    //   this.innerHTML = "I'm clicked"
+    // });
+
+    // 2. Calling the handler in addEventListener
+    // p.addEventListener("click", () => handleOnclick(p));
+
+    // 3. Using assignment in the element
+    // p.onclick = function () { this.innerHTML = "I'm clicked !! "}
+
+    // 4. Arrow functions are used (this is prohibitted, instead use an object)
+    // p.onclick = () => { p.innerHTML = "I'm clicked !!!" }
+
+    // 5. Calling the handler in the arrow function (Similar to No 2)
+    p.onclick = () => handleOnclick(p)
+  </script>
+</body>
+
+</html>
